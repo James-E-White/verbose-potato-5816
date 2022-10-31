@@ -26,10 +26,8 @@ ActiveRecord::Schema.define(version: 2022_10_31_153720) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
-    t.bigint "supermarket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["supermarket_id"], name: "index_customers_on_supermarket_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -50,5 +48,4 @@ ActiveRecord::Schema.define(version: 2022_10_31_153720) do
 
   add_foreign_key "customer_items", "customers", column: "customers_id"
   add_foreign_key "customer_items", "items", column: "items_id"
-  add_foreign_key "customers", "supermarkets"
 end
